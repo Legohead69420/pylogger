@@ -1,4 +1,4 @@
-print("Welcome to Pylogger 2.0", "\nThis is the most advanced version yet.", "\nIncluding 3 new and easier to use functions", "\nThe only piece of code you need to get started is 'from py_logger import *'", "\nPlace Pylogger in the directory of the folder of your project and boom its in your project(with the aforementioned code)")
+print("Welcome to Pylogger 2.1", "\nThis is the most advanced version yet.", "\nIncluding 3 new and easier to use functions", "\nThe only piece of code you need to get started is 'from py_logger import *'", "\nPlace Pylogger in the directory of the folder of your project and boom its in your project(with the aforementioned code)")
 def log(processname="Name of the process", logfile="File for logging", log="What you log"):
     if ':' in logfile:
         # import time
@@ -39,6 +39,11 @@ def clear(ask="Y or N", logfile="File for clearing", log="What you log after the
                 os.system("cls")
         else:
             # did not clear
+            os.system("cls")
+            from time import strftime
+            logtime = strftime("[%Y %A %B %d %I:%M:%S %p]")
+            with open(logfile, "a") as logging:
+                logging.write(f"[Clear] {logtime}      Did not clear.\n")
             print("Did not clear.")
             exit()
     else:
@@ -68,7 +73,6 @@ def clearlastline(logfile="File for deleting last line"):
     with open(logfile, 'w') as fp:
        # iterate each line
        for number, line in enumerate(lines):
-           # delete line 5 and 8. or pass any Nth line you want to remove
             # note list index starts from 0
             length=len(lines)
             if number not in [length-1]:
