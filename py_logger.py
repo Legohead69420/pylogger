@@ -40,7 +40,6 @@ def clear(ask="Y or N", logfile="File for clearing", log="What you log after the
         else:
             # did not clear
             os.system("cls")
-            from time import strftime
             logtime = strftime("[%Y %A %B %d %I:%M:%S %p]")
             with open(logfile, "a") as logging:
                 logging.write(f"[Clear] {logtime}      Did not clear.\n")
