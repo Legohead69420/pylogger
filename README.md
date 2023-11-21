@@ -5,7 +5,7 @@ This library took me a long time to make
 * [📩-How to download it](#-how-to-download-it)
 * [🚦-How to start](#-how-to-start)
 ## 📩 How to download it
-Run the "py_logger.py" file itself for the same instructions
+Run the "py_logger.py" file itself for the instructions
 
 **All functions contain instructions**
 ## 🚦-How to start
