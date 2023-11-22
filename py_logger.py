@@ -15,7 +15,7 @@ def log(processname="Name of the process", logfile="File for logging", log="What
         print("ERROR CODE: 543. Warning logfile will not enter the desired directory as you did not include the full file path inside of 'logfile'")
         exit()
 
-def clear(ask="Y or N", logfile="File for clearing", log="What you log after the clear", logornot="Y or N"):
+def clear(ask=bool, logfile="File for clearing", log="What you log after the clear", logornot=bool):
     # neccesary librarys
     import os
     from time import strftime
@@ -40,6 +40,7 @@ def clear(ask="Y or N", logfile="File for clearing", log="What you log after the
         else:
             # did not clear
             os.system("cls")
+            from time import strftime
             logtime = strftime("[%Y %A %B %d %I:%M:%S %p]")
             with open(logfile, "a") as logging:
                 logging.write(f"[Clear] {logtime}      Did not clear.\n")
