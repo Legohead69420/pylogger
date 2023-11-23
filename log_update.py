@@ -14,10 +14,10 @@ if not delete=="":
 else:
     os.system("cls")
     print("Will not delete")
-    time.sleep(5.0)
+    time.sleep(1.5)
     os.system("cls")
 print("Run the installer and in the first input type 'update' afterwards follow the instructions.")
-print("Code the installer needs")
+print("Code the installer needs(remove the [] and ''): ")
 print(install_string)
 input()
 os.system("cls")
