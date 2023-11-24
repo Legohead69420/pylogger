@@ -14,7 +14,7 @@ Download the latest release and run the installer
 Run the "py_logger.py" file itself for the instructions
 
 **All functions contain instructions**
-To install this library first download the file pylogger.py and put it into the same folder as your projects and in your code do this command(or run the installer do the inject function(instructions [here](#-instructions-after-install))):
+To install this library first download the file pylogger.py and put it into the same folder as your projects and in your code do this command(or run the installer and do the inject function(instructions [here](#-instructions-for-install))):
 ```
 from py_logger import *
 ```
