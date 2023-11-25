@@ -46,13 +46,10 @@ Input path for injection(INCLUDE FILE NAME):
 ```
 **Input the file path for injecting import**
 **This is the end of installation instructions**
-## 
-## 
-## 
-## 
-## 
+
 ## 📝-Instructions after install
 **These are the instructions after you have installed**
+# 
 **To log something use the `log()` function. Example:**
 ```
 log("Example process", "C:\example\example.log", "Example log")
