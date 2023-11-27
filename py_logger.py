@@ -1,5 +1,6 @@
 print("Welcome to Pylogger 2.1", "\nThis is the most advanced version yet.", "\nIncluding 3 new and easier to use functions", "\nThe only piece of code you need to get started is 'from py_logger import *'", "\nPlace Pylogger in the directory of the folder of your project and boom its in your project(with the aforementioned code)")
 def log(processname="Name of the process", logfile="File for logging", log="What you log"):
+    'Function for logging. Usage(example):  log("Example process", "C:\example\example.log", "Example log")'
     if ':' in logfile:
         # import time
         from time import strftime
