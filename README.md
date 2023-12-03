@@ -21,7 +21,7 @@ from py_logger import *
 ## 💪-Support
 If library does not work message support at [pylogge@gmail.com](https://tinyurl.com/mvytfjrj) or join the [Discord](https://discord.gg/ykwwvZD8Uj)
 ## 📝-Instructions for install
-**This is what your terminal should look like when you open the installer:**
+**This is what your terminal should look like when you open the installer(it may be a different color):**
 ```
 Which version would you like to install(press enter for latest)(type 'update' to update):
 ```
