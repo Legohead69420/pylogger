@@ -1,7 +1,7 @@
 # Pylogger
 This library took me a long time to make
 
-###Press the `code` drop-down menu and click download zip and extract contents to a folder [Install Instructions](#-instructions-for-install)
+### Press the `code` drop-down menu and click download zip and extract contents to a folder [Install Instructions](#-instructions-for-install)
 ## Index
 * [💪-Support](#-support)
 * [📩-How to download it](#-how-to-download-it)
