@@ -1,0 +1,5 @@
+pyproject.toml
+pylogger_itzwazy.egg-info/PKG-INFO
+pylogger_itzwazy.egg-info/SOURCES.txt
+pylogger_itzwazy.egg-info/dependency_links.txt
+pylogger_itzwazy.egg-info/top_level.txt
