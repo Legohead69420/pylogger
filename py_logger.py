@@ -1,6 +1,5 @@
-print("Welcome to Pylogger 2.1", "\nThis is the most advanced version yet.", "\nIncluding 3 new and easier to use functions", "\nThe only piece of code you need to get started is 'from py_logger import *'", "\nPlace Pylogger in the directory of the folder of your project and boom its in your project(with the aforementioned code)")
-def log(processname="Name of the process", logfile="File for logging", log="What you log"):
-    'Function for logging. Usage(example):  log("Example process", "C:\example\example.log", "Example log")'
+def log(processname="Name of the process", logfile="File for logging", log="What you log") -> None:
+    'Function for logging. Usage(example):  log("Example process", "C:\example\example.log", "Example log") Uses predetermined time code. Example of time code: [2023 Tuesday November 28 09:31:40 PM]'
     if ':' in logfile:
         # import time
         from time import strftime
@@ -16,12 +15,13 @@ def log(processname="Name of the process", logfile="File for logging", log="What
         print("ERROR CODE: 543. Warning logfile will not enter the desired directory as you did not include the full file path inside of 'logfile'")
         exit()
 
-def clear(ask=bool, logfile="File for clearing", log="What you log after the clear", logornot=bool):
+def clear(ask=bool, logfile="File for clearing", log="What you log after the clear", logornot=bool) -> input():
+    'Clears inputted file. Able to ask for user input to actually clear file. Example: ask=True or False, logfile="File for clearing", log="What you log after the clear", logornot=True or False'
     # neccesary librarys
     import os
     from time import strftime
     import time
-    if "Y" in ask or "y" in ask:
+    if "Y" in ask or "y" in ask or ask == True:
         # ask for clear
         os.system("cls")
         yesorno=input("Do you really want to clear the logfile?: ")
@@ -53,7 +53,8 @@ def clear(ask=bool, logfile="File for clearing", log="What you log after the cle
             # write reason
             logging.write(f"File cleared manually at {logtime} with clear reason: {log}\n")
 
-def seperate(logfile="File for seperation", amount="Amount of seperations"):
+def seperate(logfile="File for seperation", amount="Amount of seperations") -> None:
+    'Adds newlines to inputted file. Example: seperate(logfile="C:\example\example.log", amount=5)'
     # open file for seperation
     with open(logfile, "a") as logging:
         # get amount of seperations
@@ -62,14 +63,14 @@ def seperate(logfile="File for seperation", amount="Amount of seperations"):
         for i in range(a):
             logging.write("\n")
 
-def clearlastline(logfile="File for deleting last line"):
+def clearlastline(logfile="File for deleting last line") -> None:
+    'Clears last line of inputted file. Example: clearlastline(logfile="C:\example\example.log")'
     # list to store file lines
     lines = []
     # read file
     with open(logfile, 'r') as fp:
         # read an store all lines into list
         lines = fp.readlines()
-
     # Write file
     with open(logfile, 'w') as fp:
        # iterate each line
