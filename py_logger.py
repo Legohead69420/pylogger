@@ -1,5 +1,22 @@
-def log(processname="Name of the process", logfile="File for logging", log="What you log") -> None:
-    'Function for logging. Usage(example):  log("Example process", "C:\example\example.log", "Example log") Uses predetermined time code. Example of time code: [2023 Tuesday November 28 09:31:40 PM]'
+def _init_(lf="global filepath for logging") -> None:
+    '''
+    Creates global variable for logfile
+    '''
+    global logfile
+    logfile = lf
+
+def log(processname="Name of the process", log="What you log") -> None:
+    '''
+    Function for logging.‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    -
+    Usage(example):‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    
+    log("Example process", "C:/example/example.log", "Example log")
+
+    Uses predetermined time code.
+    
+    Example of time code: [2023 Tuesday November 28 09:31:40 PM]
+    '''
     if ':' in logfile:
         # import time
         from time import strftime
@@ -12,11 +29,22 @@ def log(processname="Name of the process", logfile="File for logging", log="What
     else:
         import os
         os.system("cls")
-        print("ERROR CODE: 543. Warning logfile will not enter the desired directory as you did not include the full file path inside of 'logfile'")
+        print("ERROR CODE: 543. Warning log file will not enter the desired directory as you did not include the full file path inside of 'LOGFILE'")
         exit()
 
-def clear(ask=bool, logfile="File for clearing", log="What you log after the clear", logornot=bool) -> input():
-    'Clears inputted file. Able to ask for user input to actually clear file. Example: ask=True or False, logfile="File for clearing", log="What you log after the clear", logornot=True or False'
+def clear(ask=bool, log="What you log after the clear", logornot=bool) -> input():
+    '''
+    Clears inputted file. Able to ask for user input to actually clear file.‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+    
+    Example: 
+        ask=True or False,‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+        
+        LOGFILE="File for clearing",‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+        
+        log="What you log after the clear",‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
+        
+        logornot=True or False
+    '''
     # neccesary librarys
     import os
     from time import strftime
@@ -24,7 +52,7 @@ def clear(ask=bool, logfile="File for clearing", log="What you log after the cle
     if "Y" in ask or "y" in ask or ask == True:
         # ask for clear
         os.system("cls")
-        yesorno=input("Do you really want to clear the logfile?: ")
+        yesorno=input(f"Do you really want to clear the log file({logfile})?: ")
         if yesorno == "Y" or yesorno == "y":
             # open file for clear
             with open(logfile, "w") as logging:
@@ -53,8 +81,8 @@ def clear(ask=bool, logfile="File for clearing", log="What you log after the cle
             # write reason
             logging.write(f"File cleared manually at {logtime} with clear reason: {log}\n")
 
-def seperate(logfile="File for seperation", amount="Amount of seperations") -> None:
-    'Adds newlines to inputted file. Example: seperate(logfile="C:\example\example.log", amount=5)'
+def seperate(amount="Amount of seperations") -> None:
+    'Adds newlines to inputted file. Example: seperate(LOGFILE="C:/example/example.log", amount=5)'
     # open file for seperation
     with open(logfile, "a") as logging:
         # get amount of seperations
@@ -63,8 +91,8 @@ def seperate(logfile="File for seperation", amount="Amount of seperations") -> N
         for i in range(a):
             logging.write("\n")
 
-def clearlastline(logfile="File for deleting last line") -> None:
-    'Clears last line of inputted file. Example: clearlastline(logfile="C:\example\example.log")'
+def clearlastline() -> None:
+    'Clears last line of inputted file. Example: clearlastline()'
     # list to store file lines
     lines = []
     # read file
@@ -79,4 +107,3 @@ def clearlastline(logfile="File for deleting last line") -> None:
             length=len(lines)
             if number not in [length-1]:
                 fp.write(line)
-                
