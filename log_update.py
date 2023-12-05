@@ -2,7 +2,7 @@ import os
 import time
 os.system("cls")
 install_string = []
-with open("C:\Py_Stuff\py_logger.py", "r") as install:
+with open("C:\pylogger-git\py_logger.py", "r") as install:
     install_string.append(install.read())
 delete=input("Would you like to delete the file afterwards(press enter if no)(type yes if yes): ")
 if not delete=="":
