@@ -61,7 +61,7 @@ def clear(ask=bool, log="What you log after the clear", logornot=bool) -> input(
                 logtime = strftime("[%Y %A %B %d %I:%M:%S %p]")
                 # write reason
                 if "Y" in logornot or "y" in logornot:
-                    logging.write(f"File cleared manually at {logtime} with clear reason: {log}\n")
+                    logging.write(f"")
                 else:
                     logging.write("")
                 os.system("cls")
