@@ -32,7 +32,7 @@ def log(processname="Name of the process", log="What you log") -> None:
         print("ERROR CODE: 543. Warning log file will not enter the desired directory as you did not include the full file path inside of 'LOGFILE'")
         exit()
 
-def clear(ask=bool, log="What you log after the clear", logornot=bool) -> input():
+def clear(ask=bool, log="What you log after the clear", logornot=bool) -> None:
     '''
     Clears inputted file. Able to ask for user input to actually clear file.‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ‎ㅤㅤㅤㅤㅤㅤㅤㅤㅤㅤ
     
@@ -61,7 +61,7 @@ def clear(ask=bool, log="What you log after the clear", logornot=bool) -> input(
                 logtime = strftime("[%Y %A %B %d %I:%M:%S %p]")
                 # write reason
                 if "Y" in logornot or "y" in logornot:
-                    logging.write(f"")
+                    logging.write(f"File cleared manually at {logtime} with clear reason: {log}\n")
                 else:
                     logging.write("")
                 os.system("cls")
@@ -79,7 +79,7 @@ def clear(ask=bool, log="What you log after the clear", logornot=bool) -> input(
         # open file for clear
         with open(logfile, "w") as logging:
             # write reason
-            logging.write(f"File cleared manually at {logtime} with clear reason: {log}\n")
+            logging.write(f"")
 
 def seperate(amount="Amount of seperations") -> None:
     'Adds newlines to inputted file. Example: seperate(LOGFILE="C:/example/example.log", amount=5)'
