@@ -49,7 +49,7 @@ def clear(ask=bool, log="What you log after the clear", logornot=bool) -> input(
     import os
     from time import strftime
     import time
-    if "Y" in ask or "y" in ask or ask == True:
+    if ask == True:
         # ask for clear
         os.system("cls")
         yesorno=input(f"Do you really want to clear the log file({logfile})?: ")
