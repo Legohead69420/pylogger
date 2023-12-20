@@ -25,9 +25,9 @@ If library does not work message support at [pylogge@gmail.com](https://tinyurl.
 ## 📝-Instructions for install
 **This is what your terminal should look like when you open the installer(it may be a different color):**
 ```
-Which version would you like to install(press enter for latest)(type 'update' to update):
+Press enter to continue...:
 ```
-**To continue insert version you want or just press `enter` for latest version**
+**To continue press enter**
 **After selecting version your terminal should look like this:**
 ```
 Would you like a detailed log(press enter if no)(if yes type 'yes'):
