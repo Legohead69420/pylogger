@@ -81,24 +81,28 @@ if not inject == "":
         exit()
 cls()
 versionid=f"install_v{version}"
-if version=="":
-    version="2.1"
-    versionid=f"install_v{version}"
-    response = wikipedia.page(install_v2_1)
-    rc = str(response.content)
-    rc = rc.replace(' ', ' ')
-    file = f'C:/Users/{getpass.getuser()}/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pylogger\__init__.py'
-    with open(file, "w") as install:
-        install.write(rc)
-    if log=="yes":
-        for i in logging:
-            print(i)
-        for i in range(10):
-            t=10-i
-            if t==1:
-                cls()
-            else:
-                print(f"Clearing log in {t} seconds...")
-            time.sleep(1.0)
-    else:
-        load("2.1")
+version="2.1"
+versionid=f"install_v{version}"
+file = f'C:/Users/{getpass.getuser()}/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pylogger\__init__.py'
+os.system(f'git clone --v https://github.com/Legohead69420/pylogger.git {file}')
+cls()
+print('Removing excess material...')
+try:
+    os.remove(f'C:/Users/{getpass.getuser()}/Py_stuff/tests/pylogger/README.md')
+    os.remove(f'C:/Users/{getpass.getuser()}/Py_stuff/tests/pylogger/.git')
+except OSError:
+    print('Unsuccessful.\nExiting...')
+    time.sleep(0.5)
+    exit(cls())
+if log=="yes":
+    for i in logging:
+        print(i)
+    for i in range(10):
+        t = 10 - i
+        if t==1:
+            cls()
+        else:
+            print(f"Clearing log in {t} seconds...")
+        time.sleep(1.0)
+else:
+    load("2.1")
