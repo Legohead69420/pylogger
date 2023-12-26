@@ -70,11 +70,11 @@ if not inject == "":
     inject=input(f"{color}Input path for injection{color2}(INCLUDE FILE NAME):{color} ")
     if ":" in inject:
         with open(inject, "r") as og:
-            if not "from py_logger import *" in og.read():
+            if not "import pylogger" in og.read():
                 with open(inject, 'r') as original:
                    data = original.read()
                 with open(inject, 'w') as modified:
-                    modified.write("from py_logger import *\n" + data)
+                    modified.write("import pylogger\n" + data)
     else:
         cls()
         print(f"{color2}⚠ ERROR: Could not find path")
