@@ -2,7 +2,7 @@
 A simple logging library.
 Made with python on 11/21/21
 '''
-import operators
+import pylogger.operators
 def _init_(lf="global filepath for logging", prcsname="global process name") -> None:
     import os
     import time
