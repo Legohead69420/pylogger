@@ -17,6 +17,14 @@ except ImportError:
     cls()
 import getpass
 import sys
+import shutil
+import stat
+
+def rmv_hdn_fl(func, path, exc_info):
+    # path contains the path of the file that couldn't be removed
+    # let's just assume that it's read-only and unlink it.
+    os.chmod(path, stat.S_IWRITE)
+    os.unlink(path)
 
 init()
 color1=Fore.GREEN
@@ -86,18 +94,14 @@ version="2.1"
 versionid=f"install_v{version}"
 path = sys.path
 path = f'{path[5]}\pylogger'
-os.system(f'del {path}')
-time.sleep(0.5)
-os.system(f'git clone https://github.com/Legohead69420/pylogger {path}')
+paths = [f'{path}/log_installer.py', f'{path}/README.md']
+cmd = str(f'del {path}')
+os.system(cmd)
+time.sleep(2.5)
+os.system(f'git clone --depth=1 https://github.com/Legohead69420/pylogger {path}')
+shutil.rmtree(f'{path}\.git', onerror = rmv_hdn_fl)
 cls()
-print(Fore.GREEN, 'Removing excess material...')
-try:
-    os.remove(f'{path}\log_installer.py')
-    os.remove(f'{path}\README.md')
-except OSError:
-    print('Unsuccessful.\nExiting...')
-    time.sleep(0.5)
-    exit(cls())
+
 if log=="yes":
     for i in logging:
         print(i)
