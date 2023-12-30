@@ -69,7 +69,7 @@ class utilities():
         import sys
         import warnings
         import msvcrt
-        def unix_getpass(prompt='Password: ', stream=None):
+        def unix_nechoinput(prompt='Password: ', stream=None):
             """Prompt for a password, with echo turned off.
             Args:
               prompt: Written on stream to ask for the input.  Default: 'Password: '
@@ -79,7 +79,7 @@ class utilities():
               The seKr3t input.
             Raises:
               EOFError: If our input tty or stdin was closed.
-              GetPassWarning: When we were unable to turn echo off on the input.
+              nechoinputWarning: When we were unable to turn echo off on the input.
             Always restores terminal settings before returning.
             """
             passwd = None
@@ -100,7 +100,7 @@ class utilities():
                         fd = sys.stdin.fileno()
                     except (AttributeError, ValueError):
                         fd = None
-                        passwd = fallback_getpass(prompt, stream)
+                        passwd = fallback_nechoinput(prompt, stream)
                     input = sys.stdin
                     if not stream:
                         stream = sys.stderr
@@ -124,18 +124,18 @@ class utilities():
                             # instead of leaving the terminal in an unknown state.
                             raise
                         # We can't control the tty or stdin.  Give up and use normal IO.
-                        # fallback_getpass() raises an appropriate warning.
+                        # fallback_nechoinput() raises an appropriate warning.
                         if stream is not input:
                             # clean up unused file objects before blocking
                             stack.close()
-                        passwd = fallback_getpass(prompt, stream)
+                        passwd = fallback_nechoinput(prompt, stream)
                 stream.write('\n')
                 return passwd
             
-        def win_getpass(prompt='Password: ', stream=None):
+        def win_nechoinput(prompt='Password: ', stream=None):
             """Prompt for password with echo off, using Windows getwch()."""
             if sys.stdin is not sys.__stdin__:
-                return fallback_getpass(prompt, stream)
+                return fallback_nechoinput(prompt, stream)
             for c in prompt:
                 msvcrt.putwch(c)
             pw = ""
@@ -153,8 +153,8 @@ class utilities():
             msvcrt.putwch('\n')
             return pw
         
-        def fallback_getpass(prompt='Password: ', stream=None):
-            warnings.warn("Can not control echo on the terminal.", GetPassWarning,
+        def fallback_nechoinput(prompt='Password: ', stream=None):
+            warnings.warn("Can not control echo on the terminal.", nechoinputWarning,
                           stacklevel=2)
             if not stream:
                 stream = sys.stderr
@@ -185,6 +185,6 @@ class utilities():
                 line = line[:-1]
             return line
         if os.name == 'nt':
-            return win_getpass(prompt.replace(':', '(this is quiet input dont worry about no output):'))
+            return win_nechoinput(prompt.replace(':', '(this is quiet input dont worry about no output):'))
         else:
-            return unix_getpass(prompt.replace(':', '(this is quiet input dont worry about no output):'))
+            return unix_nechoinput(prompt.replace(':', '(this is quiet input dont worry about no output):'))
