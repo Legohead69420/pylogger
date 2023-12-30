@@ -46,8 +46,3 @@ class o():
     def pow(y1: float, y2: float) -> float:
         import math
         return math.pow(y1, y2)
-
-cls()
-print(o.pi(50))
-exit()
-print(lo.find_multiplier(3.14159, 250, True))
