@@ -2,19 +2,6 @@ import os
 import time
 from colorama import Fore, init, Back
 cls = lambda: os.system('cls' if os.name == 'nt' else 'clear')
-try:
-    import wikipedia
-except ImportError:
-    os.system('pip install --quiet wikipedia')
-    for i in range(500):
-        cls()
-        e = 500 - i
-        print(f'Registering requirements. Please wait. Time remaining: {e} milliseconds')
-        time.sleep(0.001)
-    cls()
-    print('Done registiring')
-    time.sleep(0.5)
-    cls()
 import getpass
 import sys
 import shutil
