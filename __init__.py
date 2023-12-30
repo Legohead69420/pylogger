@@ -3,16 +3,18 @@ A simple logging library.
 Made with python on 11/21/21
 '''
 import operators
-def _init_(lf="global filepath for logging") -> None:
+def _init_(lf="global filepath for logging", prcsname="global process name") -> None:
     import os
     import time
     cls = lambda: os.system('cls' if os.name == 'nt' else 'clear')
     '''
-    Creates global variable for logfile
+    Creates global variable for log file and process name
     '''
     global logfile
+    global processname
+    processname = prcsname
     logfile = lf
-def log(processname="Name of the process", log="What you log") -> None:
+def log(log="What you log") -> None:
     '''
     Function for logging.                                
     -
