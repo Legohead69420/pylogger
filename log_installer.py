@@ -16,6 +16,7 @@ except ImportError:
     time.sleep(0.5)
     cls()
 import getpass
+import sys
 
 init()
 color1=Fore.GREEN
@@ -83,13 +84,16 @@ cls()
 versionid=f"install_v{version}"
 version="2.1"
 versionid=f"install_v{version}"
-file = f'C:/Users/{getpass.getuser()}/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\pylogger\__init__.py'
-os.system(f'git clone --v https://github.com/Legohead69420/pylogger.git {file}')
+path = sys.path
+path = f'{path[5]}\pylogger'
+os.system(f'del {path}')
+time.sleep(0.5)
+os.system(f'git clone https://github.com/Legohead69420/pylogger {path}')
 cls()
-print('Removing excess material...')
+print(Fore.GREEN, 'Removing excess material...')
 try:
-    os.remove(f'C:/Users/{getpass.getuser()}/Py_stuff/tests/pylogger/README.md')
-    os.remove(f'C:/Users/{getpass.getuser()}/Py_stuff/tests/pylogger/.git')
+    os.remove(f'{path}\log_installer.py')
+    os.remove(f'{path}\README.md')
 except OSError:
     print('Unsuccessful.\nExiting...')
     time.sleep(0.5)
