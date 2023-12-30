@@ -2,6 +2,7 @@
 A simple logging library.
 Made with python on 11/21/21
 '''
+import operators
 def _init_(lf="global filepath for logging") -> None:
     import os
     import time
