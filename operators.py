@@ -23,6 +23,21 @@ class lo:
             return ostr
         else:
             return mult
+    def find_multiplier_o(start: float, toi: float, outputstr: bool) -> float:
+        '''
+        Same as `find_multiplier()` but finds offset instead
+        '''
+        mult = 0
+        out = 0
+        while not out >= toi:
+            mult += 0.01
+            out = start * mult
+        offset = start * mult - toi
+        ostr = f'Multiplier to reach {toi} from {start} is about {mult}.\nOffset is {offset}.\nExact multiplier is impossible to find due to INSANE wait time'
+        if outputstr:
+            return ostr
+        else:
+            return offset
 
 class o():
     '''
