@@ -86,9 +86,16 @@ cmd = str(f'del {path}')
 os.system(cmd)
 time.sleep(2.5)
 os.system(f'git clone --depth=1 https://github.com/Legohead69420/pylogger {path}')
-shutil.rmtree(f'{path}\.git', onerror = rmv_hdn_fl)
+try:
+    shutil.rmtree(f'{path}\.git', onerror = rmv_hdn_fl)
+    shutil.rmtree(f'{path}\__pycache__', onerror = rmv_hdn_fl)
+except WindowsError:
+    pass
 for i in paths:
-    os.remove(i)
+    try:
+        os.remove(i)
+    except WindowsError:
+        pass
 cls()
 
 if log=="yes":
