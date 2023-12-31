@@ -23,25 +23,17 @@ from py_logger import *
 ## 💪-Support
 If library does not work message support at [pylogge@gmail.com](https://tinyurl.com/mvytfjrj) or join the [Discord](https://discord.gg/ykwwvZD8Uj)
 ## 📝-Instructions for install
-**This is what your terminal should look like when you open the installer(it may be a different color):**
-```
-Press enter to continue...:
-```
-**To continue press enter**
-**After selecting version your terminal should look like this:**
+**This is what your terminal should look like:**
 ```
 Would you like a detailed log(press enter if no)(if yes type 'yes'):
 ```
-**This is just for debugging for development ignore this and press `enter`**
-**Your terminal should look like this now:**
-```
-Input file path(do not include file name only the folder):
-```
-**Input the folder path of where you want to install**
+**This is for debugging ignore it and press `enter`**
+**Now your terminal should look like this**
 ```
 Would you like to directly inject the library to a certain file(press enter if no)(type 'yes' if yes):
 ```
 **Now if you want to directly import the library to a file just type `yes` otherwise press `enter`**
+> If you press enter thats the end of the instructions just type `y` and press `enter`
 **Now your terminal should look like this**
 ```
 Input path for injection(INCLUDE FILE NAME):
@@ -52,9 +44,13 @@ Input path for injection(INCLUDE FILE NAME):
 ## 📝-Instructions after install
 **These are the instructions after you have installed**
 # 
+**Before doing anything use the `_init_()` function. Example:**
+```
+_init_("C:/example/example.log", "Example process")
+```
 **To log something use the `log()` function. Example:**
 ```
-log("Example process", "C:\example\example.log", "Example log")
+log("C:\example\example.log", "Example log")
 ```
 **To clear the last line use the `clearlastline()` function**
 ```
