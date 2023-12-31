@@ -1,7 +1,7 @@
 # Pylogger
 This library took me a long time to make
 
-### Press the `code` drop-down menu and click download zip and extract contents to a folder [Install Instructions](#-instructions-for-install)
+### Download the log_installer.py file and run it [Install Instructions](https://github.com/Legohead69420/pylogger/wiki/Instructions)
 ## Index
 * [💪-Support](#-support)
 * [📩-How to download it](#-how-to-download-it)
