@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.8"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: my dad License",
+    "License :: OSI Approved :: PYPA License",
     "Operating System :: NT",
 ]
 
