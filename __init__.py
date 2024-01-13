@@ -4,9 +4,13 @@ Made with python on 11/21/21
 '''
 import pylogger.operators as op
 def init(lf, prcsname) -> None:
-    '''
-    Creates global variable for log file and process name
-    '''
+    """
+    Creates global variables for your logger
+
+    Args:
+        lf (str): Log file for logger
+        prcsname (str): Process name for logger
+    """
     import os
     import inspect
     cls = lambda: os.system('cls' if os.name == 'nt' else 'clear')
@@ -25,10 +29,16 @@ def init(lf, prcsname) -> None:
     filename = path.rsplit("\\")
     filename = filename[len(filename)-1]
 
-def logdec(func) -> None:
-    '''
-    Decorator that logs function name and return
-    '''
+def logdec(func) -> str:
+    """
+    Decorator for logging output of functions
+
+    Args:
+        func (function): Function for logging
+
+    Returns:
+        str: Output of `func`
+    """
     from functools import wraps
     @wraps(func)
     def wrapperl(*args, **kwargs):
@@ -42,9 +52,9 @@ def logdec(func) -> None:
 def log(*_log: object) -> None:
     '''
     Function for logging.                                
-    -
+    
     Usage(example):                                
-    log("Example process", "C:/example/example.log", "Example log")
+    log("Example log")
     Uses predetermined time code.
     Example of time code: [07:23:22 PM January 09      2024 Tuesday]
     '''
@@ -66,12 +76,14 @@ def log(*_log: object) -> None:
         print("ERROR CODE: 543. Warning log file will not enter the desired directory as you did not include the full file path inside of 'LOGFILE'")
         exit()
 
-def clear(ask=bool, log="What you log after the clear", logornot=bool) -> None:
-    '''
-    Clears inputted file. Able to ask for user input to actually clear file.
-    Example:
-    ask=True or False, LOGFILE="File for clearing", log="What you log after the clear", logornot=True or False
-    '''
+def clear(log: str, logornot: bool | None=True, ask: bool | None=True) -> None:
+    """Clears logfile
+
+    Args:
+        log (str, optional): _description_..
+        logornot (bool): Log or not. Defaults to True
+        ask (bool): Ask for user input. Defaults to True.
+    """
     from time import strftime
     logtime = strftime("[%Y %A %B %d %I:%M:%S %p]")
     # neccesary librarys
