@@ -9,7 +9,7 @@ This library took me a long time to make
 * [📝-Instructions](https://github.com/Legohead69420/pylogger/wiki/Instructions)
 ## 📩 How to download it
 > [!IMPORTANT]
-Download `log_installer.py` and run it(instructions on wiki)
+Download `log_installer.py` and run it(instructions [here](https://github.com/Legohead69420/pylogger/wiki/Instructions))
 ## 🚦-How to start
 > [!IMPORTANT]
 Run the "py_logger.py" file itself for the instructions
