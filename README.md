@@ -11,13 +11,6 @@ This library took me a long time to make
 > [!IMPORTANT]
 Download `log_installer.py` and run it(instructions [here](https://github.com/Legohead69420/pylogger/wiki/Instructions))
 ## 🚦-How to start
-> [!IMPORTANT]
-Run the "py_logger.py" file itself for the instructions
-
 **All functions contain instructions**
-To install this library first download the file pylogger.py and put it into the same folder as your projects and in your code do this command(or run the installer and do the inject function(instructions [here](#-instructions-for-install))):
-```
-from py_logger import *
-```
 ## 💪-Support
-If library does not work message support at [pylogge@gmail.com](https://tinyurl.com/mvytfjrj) or join the [Discord](https://discord.gg/ykwwvZD8Uj)
+If there are problems with the libary message support at [pylogge@gmail.com](https://tinyurl.com/mvytfjrj) or join the [Discord](https://discord.gg/ykwwvZD8Uj)
