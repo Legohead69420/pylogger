@@ -64,9 +64,9 @@ class Logger():
             # create time string
             logtime = strftime("[%I:%M:%S %p %B %d      %Y %A]")
             # open file for log
-            with open(logfile, "a") as logging:
+            with open(self.logfile, "a") as logging:
                 # write log with formatting
-                logging.write(f"From '{filename} | {processname}' at {logtime}               {__log}\n")
+                logging.write(f"From '{self.filename} | {self.processname}' at {logtime}               {__log}\n")
         else:
             import os
             os.system("cls")
