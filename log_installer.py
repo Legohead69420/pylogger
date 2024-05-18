@@ -41,6 +41,10 @@ def load(version=str):
     print(f"{percent2}{percent2}{percent2}{percent2} {color1}100%")
     time.sleep(1.0)
     cls()
+    percent1 = f"{color1}━"
+    percent2 = f"{color2}━"
+    for i in range(100):
+        print(f"{percent1}"*i, end="", flush=True)
     color=Fore.CYAN
     print(f"{color}Finished installation")
     input()
