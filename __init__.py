@@ -3,7 +3,7 @@ A simple logging library.
 Made with python on 11/21/21
 '''
 import pylogger.operators as op
-def init(lf, prcsname) -> None:
+def init(lf: str, prcsname: str) -> None:
     """
     Creates global variables for your logger
 
