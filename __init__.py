@@ -3,8 +3,8 @@ A simple logging library.
 Made with python on 11/21/21
 '''
 import pylogger.operators as op
-class Logger:
-    def init(lf: str, prcsname: str) -> None:
+class Logger():
+    def init(self, lf: str, prcsname: str) -> None:
         """
         Creates global variables for your logger
 
@@ -15,22 +15,18 @@ class Logger:
         import os
         import inspect
         cls = lambda: os.system('cls' if os.name == 'nt' else 'clear')
-        global logfile
-        global processname
-        global rtrns
-        rtrns = []
-        processname = prcsname
-        logfile = lf
-        global filename
+        self.rtrns = []
+        self.processname = prcsname
+        self.logfile = lf
         if __name__ != '__main__':
             for frame in inspect.stack()[1:]:
                 if frame.filename[0] != '<':
                     path = frame.filename
                     break
-        filename = path.rsplit("\\")
-        filename = filename[len(filename)-1]
+        self.filename = path.rsplit("\\")
+        self.filename = self.filename[len(self.filename)-1]
 
-    def logdec(func) -> str:
+    def logdec(self, func) -> str:
         """
         Decorator for logging output of functions
 
@@ -43,14 +39,14 @@ class Logger:
         from functools import wraps
         @wraps(func)
         def wrapperl(*args, **kwargs):
-            log(f"Executing function '{func.__name__}'")
+            self.log(f"Executing function '{func.__name__}'")
             func(*args, **kwargs)
             rtrn = func(*args, **kwargs)
-            log(f"Function completed with return '{rtrn}'")
+            self.log(f"Function completed with return '{rtrn}'")
             return rtrn
         return wrapperl
 
-    def log(*_log: object) -> None:
+    def log(self, *_log: object) -> None:
         '''
         Function for logging.                                
 
@@ -62,7 +58,7 @@ class Logger:
         __log = ""
         for i in _log:
             __log += i
-        if ':' in logfile:
+        if ':' in self.logfile:
             # import time
             from time import strftime
             # create time string
@@ -77,7 +73,7 @@ class Logger:
             print("ERROR CODE: 543. Warning log file will not enter the desired directory as you did not include the full file path inside of 'LOGFILE'")
             exit()
 
-    def clear(log: str, logornot: bool | None=True, ask: bool | None=True) -> None:
+    def clear(self, log: str, logornot: bool | None=True, ask: bool | None=True) -> None:
         """Clears logfile
 
         Args:
@@ -121,7 +117,7 @@ class Logger:
                 # write reason
                 logging.write(f"")
 
-    def seperate(amount="Amount of seperations") -> None:
+    def seperate(self, amount: "Amount of seperations") -> None:
         'Adds newlines to inputted file. Example: seperate(LOGFILE="C:/example/example.log", amount=5)'
         # open file for seperation
         with open(logfile, "a") as logging:
@@ -131,7 +127,7 @@ class Logger:
             for i in range(a):
                 logging.write("\n")
 
-    def clearlastline() -> None:
+    def clearlastline(self) -> None:
             'Clears last line of inputted file. Example: clearlastline()'
             # list to store file lines
             lines = []
