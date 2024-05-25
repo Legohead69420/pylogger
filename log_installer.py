@@ -37,7 +37,7 @@ def load(version=str):
     color = Fore.CYAN
     print(f"{color}Finished installation")
     input()
-    cls()
+    # cls()
     color = Fore.WHITE
 
 
@@ -95,8 +95,8 @@ paths = [
     f"{path}/py-project.toml",
     f"{path}/setup.py",
 ]
-cmd = str(f"del {path}")
-os.system(cmd)
+cmd = str(f"rm -Force {path}")
+shutil.rmtree(path)
 time.sleep(2.5)
 os.system(f"git clone --depth=1 https://github.com/Legohead69420/pylogger {path}")
 try:
