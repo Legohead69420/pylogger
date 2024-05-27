@@ -93,7 +93,7 @@ class Logger():
             yesorno = input(f"Do you really want to clear the log file({logfile})?: ")
             if yesorno == "Y" or yesorno == "y":
                 # open file for clear
-                with open(logfile, "w") as logging:
+                with open(self.logfile, "w") as logging:
                     logtime = strftime("[%Y %A %B %d %I:%M:%S %p]")
                     # write reason
                     if "Y" in logornot or "y" in logornot:
@@ -107,20 +107,20 @@ class Logger():
             else:
                 # did not clear
                 os.system("cls")
-                with open(logfile, "a") as logging:
+                with open(self.logfile, "a") as logging:
                     logging.write(f"[Clear] {logtime}               Did not clear.\n")
                     print("Did not clear.")
                     exit()
         else:
             # open file for clear
-            with open(logfile, "w") as logging:
+            with open(self.logfile, "w") as logging:
                 # write reason
                 logging.write(f"")
 
     def seperate(self, amount: "Amount of seperations") -> None:
         'Adds newlines to inputted file. Example: seperate(LOGFILE="C:/example/example.log", amount=5)'
         # open file for seperation
-        with open(logfile, "a") as logging:
+        with open(self.logfile, "a") as logging:
             # get amount of seperations
             a=amount
             # for loop through seperations
@@ -132,7 +132,7 @@ class Logger():
             # list to store file lines
             lines = []
             # read file
-            with open(logfile, 'r') as fp:
+            with open(self.logfile, 'r') as fp:
                 # read an store all lines into list
                 lines = fp.readlines()
                   # Write file
